@@ -1,0 +1,233 @@
+<html>
+  <head>
+    <title>Javascript/JQuery Gallery (Image Replacement)</title>
+
+    <style type="text/css">
+      * {
+        margin:0;
+        padding:0;
+        border:none;
+      }
+      html {
+        background:#e5e5e5 url('tile.png') repeat top left;
+        font-family:sans-serif;
+        font-weight:normal;
+        font-size:12px;
+      }
+      #gallery {
+        width:960px;
+        margin:10px auto;
+        text-align:center;
+      }
+      .item {
+        text-align:left;
+        width:960px;
+        background:#eee;
+        border:1px solid #ccc;
+        margin:0 auto 10px;
+      }
+      .image img {
+        max-width:600px;
+        max-height:600px;
+        margin:auto;
+        width:expression(document.body.clientWidth > (500/12) *
+          parseInt(document.body.currentStyle.fontSize)?
+            "600px":
+            "auto" );
+      }
+      .image {
+        width:600px;
+        float:left;
+        padding:10px;
+      }
+      .thumb {
+        float:left;
+        margin:3px;
+        padding:5px;
+        background-color:#eee;
+        border:1px solid #ccc;
+        display:none;
+      }
+      .thumb img {
+        width:75px;
+      }
+      .descrip {
+        width:300px;
+        padding:20px;
+        float:right;
+      }
+      .clear {
+        clear:both;
+      }
+      #box {
+        display:none;
+        width:960px;
+        text-align:left;
+        background:#eee;
+        border:1px solid #ccc;
+        margin-bottom:3px;
+        height:600px;
+      }
+      #image {
+        padding:10px;
+        float:left;
+        width:600px;
+        height:580px;
+        text-align:center;
+      }
+      #image img {
+        margin:0 auto;
+        vertical-align:middle;
+      }
+      #description {
+        width:300px;
+        padding:20px;
+        float:right;
+      }
+      p {
+        padding:3px 0;
+      }
+      h2 {
+        padding:3px 0;
+      }
+    </style>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        //show thumbs and hide images, edit css
+        $('.thumb').css('display','inline');
+        $('.image, .descrip').css('display','none');
+        $('.item').css({
+          background : 'transparent',
+          border : 'none',
+          margin : '0',
+          width : '110px',
+          display : 'inline',
+        });
+        $('.item .clear').css('clear','none');
+        $('#box').css('display','block');
+
+        $('.thumb a').click(function(){
+          var largePath = $(this).attr('href');
+          var largeAlt = $(this).attr('title');
+
+          //replace src and alt with largePath and largeAlt
+          $('#image img').attr({
+            src: largePath,
+            alt: largeAlt
+            });
+
+          $('#description h2').html(largeAlt);
+
+          return false;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="gallery">
+
+      <div id="box">
+        <div id="image">
+          <img src="images/bleak20.png" />
+        </div>
+        <div id="description">
+          <h2>Image 1</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="clear"></div>
+      </div><!--end box-->
+
+      <div class="item">
+        <div class="thumb">
+          <a href="images/bleak20.png" title="Image 1"><img src="images/thumbs/bleak20_thumb.png" /></a>
+        </div>
+        <div class="image"><img src="images/bleak20.png" /></div>
+        <div class="descrip">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="clear"></div>
+      </div><!--end item-->
+
+      <div class="item">
+        <div class="thumb">
+          <a href="images/eyeillusion.jpg" title="Image 2"><img src="images/thumbs/eyeillusion_thumb.png" /></a>
+        </div>
+        <div class="image"><img src="images/eyeillusion.jpg" /></div>
+        <div class="descrip">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="clear"></div>
+      </div><!--end item-->
+
+      <div class="item">
+        <div class="thumb">
+          <a href="images/fear.png" title="Image 3"><img src="images/thumbs/fear_thumb.png" /></a>
+        </div>
+        <div class="image"><img src="images/fear.png" /></div>
+        <div class="descrip">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="clear"></div>
+      </div><!--end item-->
+
+      <div class="item">
+        <div class="thumb">
+          <a href="images/finnian.png" title="Image 4"><img src="images/thumbs/finnian_thumb.png" /></a>
+        </div>
+        <div class="image"><img src="images/finnian.png" /></div>
+        <div class="descrip">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="clear"></div>
+      </div><!--end item-->
+
+      <div class="item">
+        <div class="thumb">
+          <a href="images/firebloom.png" title="Image 5"><img src="images/thumbs/firebloom_thumb.png" /></a>
+        </div>
+        <div class="image"><img src="images/firebloom.png" /></div>
+        <div class="descrip">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="clear"></div>
+      </div><!--end item-->
+
+      <div class="item">
+        <div class="thumb">
+          <a href="images/flairv2.png" title="Image 6"><img src="images/thumbs/flairv2_thumb.png" /></a>
+        </div>
+        <div class="image"><img src="images/flairv2.png" /></div>
+        <div class="descrip">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="clear"></div>
+      </div><!--end item-->
+
+      <div class="item">
+        <div class="thumb">
+          <a href="images/links.png" title="Image 7"><img src="images/thumbs/links_thumb.png" /></a>
+        </div>
+        <div class="image"><img src="images/links.png" /></div>
+        <div class="descrip">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="clear"></div>
+      </div><!--end item-->
+
+      <div class="item">
+        <div class="thumb">
+          <a href="images/outline2.png" title="Image 8"><img src="images/thumbs/outline2_thumb.png" /></a>
+        </div>
+        <div class="image"><img src="images/outline2.png" /></div>
+        <div class="descrip">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="clear"></div>
+      </div><!--end item-->
+
+      </div><!--end item-->
+    </div><!--end gallery-->
+  </body>
+</html>
