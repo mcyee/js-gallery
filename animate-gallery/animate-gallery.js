@@ -15,7 +15,7 @@ $(function() {
 			'float' : 'left',
 			'width' : slideWidth
 		});
-	
+
 	// Set #slideInner width equal to total width of all slides
 	$('#slideInner').css('width', slideWidth * numberOfSlides);
 
@@ -48,17 +48,17 @@ $(function() {
 		if(position==0){
 			$('#leftControl').hide()
 		}
-		else { 
-			$('#leftControl').show() 
+		else {
+			$('#leftControl').show()
 		}
-		
+
 		// Hide right arrow if position is last slide
 		if(position==numberOfSlides-1) {
 			$('#rightControl').hide()
 		}
 
 		else {
-			$('#rightControl').show() 
+			$('#rightControl').show()
 		}
 	}
 });
